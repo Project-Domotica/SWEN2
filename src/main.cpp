@@ -1,14 +1,14 @@
 #include "argh.h"
-#include "bubble_sort.h"
+
 #include "heap_sort.h"
+#include "bubble_sort.h"
 #include "merge_sort.h"
 
-#include <string>
-#include <vector>
-#include <cctype>
-#include <algorithm>
 #include <iostream>
-#include <iterator>
+#include <string>
+#include <algorithm>
+#include <cctype>
+#include <vector>
 
 #define HELP_STR "usage: sort [--help] [--verbose]\n\t<--algorithm <algorithm>> <args>\n\navailable algorithms\n\tbubble\n\tmerge\n\theap\n"
 
@@ -29,10 +29,12 @@ bool check_number(std::string str) {
     return true;
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
+    // create argparser (argh)
     argh::parser cmdl(argc, argv, argh::parser::PREFER_PARAM_FOR_UNREG_OPTION);
     bool verbose = cmdl["-v"];
-    
+
     // if help was specified
     if (cmdl[{ "-h", "--help" }])
     {
@@ -73,7 +75,7 @@ int main(int argc, char* argv[]) {
     if (selected_algorithm == "bubble")
     {
         // bubble
-        //bubbleSort();
+        bubbleSort(args);
         std::cout << "values sorted with bubble sort:" << std::endl;
         print_vector(args);
         return 0;
@@ -81,7 +83,7 @@ int main(int argc, char* argv[]) {
     else if (selected_algorithm == "merge")
     {
         // merge
-        //mergeSort();
+        mergeSort(args, 0, args.size() - 1);
         std::cout << "values sorted with merge sort:" << std::endl;
         print_vector(args);
         return 0;
@@ -89,7 +91,7 @@ int main(int argc, char* argv[]) {
     else if (selected_algorithm == "heap")
     {
         // heap
-        //heapSort();
+        heapSort(args);
         std::cout << "values sorted with heap sort:" << std::endl;
         print_vector(args);
         return 0;
