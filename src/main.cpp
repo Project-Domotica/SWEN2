@@ -58,7 +58,9 @@ int main(int argc, char* argv[]) {
 
     // string of the selected algorithm
     std::string selected_algorithm = static_cast<std::string>(cmdl({ "-a", "--algorithm" }).str());
-    
+    // to lowercase
+    std::transform(selected_algorithm.begin(), selected_algorithm.end(), selected_algorithm.begin(), [](unsigned char c) { return std::tolower(c); });
+
     // check amount of ints
     if (args.size() < 2)
     {
