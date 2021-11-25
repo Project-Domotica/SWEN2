@@ -4,6 +4,9 @@
 #include "merge_sort.h"
 
 #include <string>
+#include <vector>
+#include <cctype>
+#include <algorithm>
 #include <iostream>
 
 #define HELP_STR "usage: sort [--help] [--verbose]\n\t<--algorithm <algorithm>> <args>\n\navailable algorithms\n\tbubble\n\tmerge\n\theap\n"
