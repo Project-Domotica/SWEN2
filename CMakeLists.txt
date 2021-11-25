@@ -4,7 +4,9 @@ project(SWEN2 VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-add_executable(SWEN2 main.cpp)
+FILE(GLOB MySources src/*.cpp)
+add_executable(SWEN2 ${MySources})
+include_directories(include)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
