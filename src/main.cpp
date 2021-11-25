@@ -59,6 +59,14 @@ int main(int argc, char* argv[]) {
     // string of the selected algorithm
     std::string selected_algorithm = static_cast<std::string>(cmdl({ "-a", "--algorithm" }).str());
     
+    // check amount of ints
+    if (args.size() < 2)
+    {
+        std::cout << HELP_STR << std::endl;
+        std::cout << "error: please enter two or more integers to sort.";
+        return 0;
+    }
+
     // check algorithm
     if (selected_algorithm == "bubble")
     {
